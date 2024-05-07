@@ -2,7 +2,7 @@ import { createContext, useLayoutEffect, useState } from "react";
 
 export const TaskContext = createContext(
   {
-    tasks_ar: [{ name: '', id: 0 }],
+    tasks_ar: [{ name: '', id: 1 }],
     currentEdit: {name:"" , id:0},
     showEdit: false,
     showEditPopUp: () => {},
@@ -34,6 +34,7 @@ export function TaskContextProvider({ children }) {
   }
 
   const editTask = (id,item) =>{
+    console.log(id, item);
     const taskIndex = tasks_ar.findIndex(item => item.id === id);
     const update_ar = [...tasks_ar]
     update_ar[taskIndex] = item

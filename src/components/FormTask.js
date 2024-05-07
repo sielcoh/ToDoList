@@ -3,9 +3,9 @@ import { TaskContext } from '../context/TaskContext';
 
 export default function FormTask() {
 
+  const [nameInp, setNameInp] = useState("")
   const { addTask } = useContext(TaskContext)
 
-  const [nameInp, setNameInp] = useState("")
   const onSub = (e) => {
     e.preventDefault();
     if (nameInp.length > 1) {
@@ -25,7 +25,7 @@ export default function FormTask() {
       <form onSubmit={onSub} className='col-md-6'>
         <label>Task name:</label>
         <div className='d-flex'>
-          <input onInput={(e) => setNameInp(e.target.value)} type="text"
+          <input value={nameInp} onInput={(e) => setNameInp(e.currentTarget.value)} type="text"
             className='form-control' />
           <button className='btn btn-info'>Add</button>
         </div>
